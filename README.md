@@ -1,4 +1,4 @@
-TODO :
+<h2>TODO :</h2>
 - [x] Learn how to create a git repo form a classic repertory
 - [ ] Create Makefile (.so) and main sources + a main
 - [ ] Refactor dynarrays with mmap to get flexible data structures
@@ -18,5 +18,5 @@ BACKLOG :
 - [ ] Brainstorm about speed optimization
 - [ ] Brainstorm about space optimisation
 
-DONE BACKLOG ;
+DONE BACKLOG :
 
