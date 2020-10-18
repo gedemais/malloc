@@ -5,15 +5,16 @@
 - [ ] Refactor dynarrays with mmap to get flexible data structures
 - [ ] Test new dynarrays
 
-BLOCKED :
+<h2>Blocked :</h2>
 
-IN PROGRESS :
+<h2>In Progress :</h2>
 
-TESTING :
+<h2>Testing :</h2>
 
-DONE :
+<h2>Done :</h2>
 
-BACKLOG :
+<h2>Backlog :</h2>
+
 - [ ] Define architecture for malloc, realloc, free functions
 - [ ] Define abstractions for zones, pages, chunks + create show alloc mem()
 - [ ] Brainstorm about speed optimization
