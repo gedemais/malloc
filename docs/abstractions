@@ -1,0 +1,53 @@
+zone abstraction :
+
+enum			e_zones
+{
+	ZONE_NONE,
+	ZONE_TINY,
+	ZONE_SMALL,
+	ZONE_MIDDLE,
+	ZONE_BIG,
+	ZONE_LARGE,
+	ZONE_MAX
+};
+
+enum			e_zone_size
+{
+	ZS_TINY = 16,
+	ZS_SMALL = 64,
+	ZS_MIDDLE = 256,
+	ZS_BIG = 1024,
+	ZS_LARGE = INFINITY
+};
+
+typedef struct	s_page
+{
+	int64_t		addr;
+	int			frees;
+}				t_page;
+
+typedef struct	s_zone
+{
+	t_dynarray	pages; // t_page
+	t_dynarray	chunks; // t_chunk
+	char		*name;
+	size_t		chunk_size;
+}				t_zone;
+
+The main zones array will be represented in a singleton as :
+
+t_zone	*g_zones(unsigned int index)
+{
+	static t_zone	zones[ZONE_MAX];
+
+	return (&zones[index]);
+}
+
+chunk abstraction:
+
+struct	s_chunk
+{
+	int64_t	addr;
+	size_t	size;
+	int		page;
+}		t_chunk;

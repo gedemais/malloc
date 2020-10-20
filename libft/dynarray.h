@@ -6,7 +6,7 @@
 /*   By: gedemais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 18:03:19 by gedemais          #+#    #+#             */
-/*   Updated: 2020/07/10 18:03:21 by gedemais         ###   ########.fr       */
+/*   Updated: 2020/10/20 22:50:30 by gedemais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,14 @@ typedef struct	s_dynarray
 	int			cell_size;
 	int			nb_cells;
 	int			byte_size;
+	int			pad;
 }				t_dynarray;
 
 int				init_dynarray(t_dynarray *arr, int cell_size, int nb_cells);
 void			clear_dynarray(t_dynarray *arr);
 void			*dyacc(t_dynarray *arr, int index);
 
+void			*alloc_content(size_t size);
 int				check_space(t_dynarray *arr);
 void			free_dynarray(t_dynarray *arr);
 

@@ -1,0 +1,58 @@
+malloc:
+
+1. Determiner si first launch:
+	oui : first_launch()
+	non : rien
+
+2. Determiner la zone d'allocation
+
+3. Trouver un espace libre dans cette zone
+
+a. Iterer sur toutes les pages de la zone
+
+b. Si page->frees > 0, etape c
+
+c. Chercher un chunk libre dans cette page
+	Iterer sur tous les emplacements de la page:
+		Iterer sur tous les chunks de la zone:
+			si chunk->page == index de la page en cours et chunk->addr == emplacement, breaked = true && break
+		if (breaked)
+			continue ;
+		addr = emplacement
+		break
+
+d. creer un nouveau chunk avec addr, size et page
+
+e. Push ce chunk dans zone->chunks
+
+si aucune page de libre, expand_pages()
+
+expand_pages():
+allouer un gros bloc de memoire et placer des pointeurs tous les page_size() octets pour creer des pages
+
+free:
+1. Iterer sur toutes les zones
+	Iterer sur toutes les chunks
+		si chunk->addr == addr:
+			pop le chunk
+
+realloc:
+1. Trouver le chunk comme dans free
+	verifier si un changement de zone est necessaire
+		si oui:
+			update la taille du chunk
+		sinon:
+			pop le chunk de la zone
+			appeler malloc avec la nouvelle taille en param
+
+show_alloc_mem:
+total = 0
+iterer sur toutes les zones:
+	printf("%s : %p\n", zone->name, zone->pages.c)
+	trier le tableau de chunks par adresse
+	iterer sur tous les chunks de la zone:
+		total += chunk->size
+		printf("%p - %p : %zu octets\n", (void*)chunk->addr, (void*)(chunk->addr + chunk->size), chunk->size);
+	printf("%zu\n", total);
+	
+
