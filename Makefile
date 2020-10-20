@@ -22,8 +22,10 @@ $(SRC_PATH)%.o: $(SRC_PATH)%.c $(INC)
 
 clean:
 	rm -rf $(OBJ)
+	make -C $(LIB_PATH) clean
 
 fclean: clean
 	rm -rf $(NAME)
+	make -C $(LIB_PATH) fclean
 
 re: fclean all
