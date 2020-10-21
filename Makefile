@@ -12,10 +12,13 @@ OBJ=$(SRC:.c=.o)
 LIB_PATH=libft/
 LIB=$(LIB_PATH)/libft.a
 
-all: $(NAME)
+all: $(LIB) $(NAME)
+
+$(LIB): $(LIB_PATH)
+	make -C $(LIB_PATH)
 
 $(NAME): $(OBJ)
-	$(CC) -shared -o $(NAME) $(OBJ)
+	$(CC) -shared $(OBJ) -o $(NAME) $(LIB)
 
 $(SRC_PATH)%.o: $(SRC_PATH)%.c $(INC)
 	$(CC) $(FLAGS) -I$(INC_PATH) -I$(LIB_PATH) -o $@ -c $<
