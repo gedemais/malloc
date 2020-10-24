@@ -1,20 +1,23 @@
 <h2>Todo :</h2>
-- [ ] Fix tiny and small add_pages
+- [ ] protect against stupid memory sizes (getrlimit)
+- [ ] mmap with page_size multiples only
 
 <h2>Blocked :</h2>
 
 <h2>In Progress :</h2>
+- [ ] realloc
 
 <h2>Testing :</h2>
+- [ ] malloc and free a lot of pointers and free them all
+- [ ] make a list of malloc'ed pointers, and realloc or free them randomly
 
 <h2>Done :</h2>
+- [x] Fix tiny and small add_pages
+- [x] code free
 
 <h2>Backlog :</h2>
-- [ ] Brainstorm about speed optimization
-- [ ] Brainstorm about space optimisation (percentage of memory density)
-- [ ] mmap with page_size multiples only
 
-<h2>---------- Done Backlog ----------</h2>
+<h2> ---------- Done Backlog ---------- </h2>
 
 <h3>Setup of project :</h3>
 	- [x] Create Makefile (.so) and main sources + a main launcher

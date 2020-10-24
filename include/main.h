@@ -64,5 +64,6 @@ int		add_pages(t_zone *zone, int nb_pages);
 
 int		first_call(bool *first);
 void	*zone_dispatch(size_t size);
+t_chunk	*find_chunk(void *ptr, int *index, t_zone **z);
 
 #endif

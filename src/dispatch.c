@@ -31,6 +31,7 @@ static void	*place_chunk_in_page(t_zone *zone, t_page *page, int page_index, siz
 			new.zone = zone->id;
 			if (push_dynarray(&zone->chunks, &new, false))
 				return (NULL);
+			page->frees--;
 			return ((void*)head);
 		}
 		head += zone->chunk_size;
