@@ -2,8 +2,8 @@
 
 t_chunk		*find_chunk(void *ptr, int *index, t_zone **z)
 {
-	t_chunk	*chunk;
 	t_zone	*zone;
+	t_chunk	*chunk;
 
 	for (unsigned int i = 0; i < ZONE_MAX; i++)
 	{
@@ -32,7 +32,8 @@ void	free(void *ptr)
 	if ((chunk = find_chunk(ptr, &index, &zone)))
 	{
 		page = dyacc(&zone->pages, chunk->page);
-		page->frees++;
+		if (zone->id != ZONE_LARGE)
+			page->frees++;
 		extract_dynarray(&zone->chunks, index);
 		return ;
 	}
