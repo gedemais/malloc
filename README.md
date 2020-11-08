@@ -1,5 +1,6 @@
 <h2>Todo :</h2>
 
+- [ ] protect functions temporality
 - [ ] protect against stupid memory sizes (getrlimit)
 - [ ] mmap with page_size multiples only
 

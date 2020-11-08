@@ -8,6 +8,18 @@
 
 # include <stdio.h>
 # include <limits.h>
+# include <assert.h>
+
+# define PUT printf("There\n");
+# define PUT1 printf("There1\n");
+# define PUT2 printf("There2\n");
+# define PUT3 printf("There3\n");
+# define PUT4 printf("There4\n");
+# define PUT5 printf("There5\n");
+# define PUT6 printf("There6\n");
+# define PUT7 printf("There7\n");
+# define PUT8 printf("There8\n");
+# define PUT9 printf("There9\n");
 
 enum			e_zones
 {
@@ -64,6 +76,9 @@ int		add_pages(t_zone *zone, int nb_pages);
 
 int		first_call(bool *first);
 void	*zone_dispatch(size_t size);
+void	*allocate_chunk(t_zone *zone, size_t size);
+void	*allocate_large_chunk(t_zone *zone, size_t size);
 t_chunk	*find_chunk(void *ptr, int *index, t_zone **z);
+void	free_chunk(t_zone *zone, t_chunk *chunk, int index);
 
 #endif

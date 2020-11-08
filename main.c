@@ -4,21 +4,20 @@
 int		main(void)
 {
 	void	*ptr;
+	int		range = 100;
+	char	zone[10];
 
-	for (int i = 0; i < 3000; i++)
-	{
-		ptr = malloc(10);
-		assert(ptr);
-		free(ptr);
+	ptr = malloc(10);
+	memcpy(zone, ptr, 10);
+	show_alloc_mem();
+	printf("---------------------\n");
 
-		ptr = malloc(40);
-		assert(ptr);
-		free(ptr);
+	for (int i = 0; i < range; i++)
+		assert((ptr = realloc(ptr, rand() % 100)));
 
-		ptr = malloc(80);
-		assert(ptr);
-		free(ptr);
-	}
+	ptr = realloc(ptr, 10);
+	assert(!memcmp(zone, ptr, 10));
+	free(ptr);
 	show_alloc_mem();
 	return (0);
 }

@@ -39,7 +39,7 @@ static void	*place_chunk_in_page(t_zone *zone, t_page *page, int page_index, siz
 	return (NULL);
 }
 
-static void	*allocate_large_chunk(t_zone *zone, size_t size)
+void	*allocate_large_chunk(t_zone *zone, size_t size)
 {
 	t_chunk	new;
 	void	*addr;
@@ -55,7 +55,7 @@ static void	*allocate_large_chunk(t_zone *zone, size_t size)
 	return (addr);
 }
 
-static void	*allocate_chunk(t_zone *zone, size_t size)
+void	*allocate_chunk(t_zone *zone, size_t size)
 {
 	void	*ret = NULL;
 	t_page	*page;
@@ -81,8 +81,11 @@ void	*zone_dispatch(size_t size)
 {
 	const size_t	sizes[ZONE_MAX + 1] = {0, ZS_TINY, ZS_SMALL, ZS_LARGE};
 
+	if (size == 0)
+			return (allocate_chunk(g_zones(0), size));
 	for (unsigned int i = 0; i < ZONE_MAX; i++)
 		if (size > sizes[i] && size <= sizes[i + 1])
 			return (allocate_chunk(g_zones(i), size));
+	printf("dispatch failed (%zu)\n", size);
 	return (NULL);
 }
