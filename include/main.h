@@ -81,4 +81,7 @@ void	*allocate_large_chunk(t_zone *zone, size_t size);
 t_chunk	*find_chunk(void *ptr, int *index, t_zone **z);
 void	free_chunk(t_zone *zone, t_chunk *chunk, int index);
 
+bool	*zone_init(bool up);
+bool	*debug(void);
+
 #endif

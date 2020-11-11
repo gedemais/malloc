@@ -6,7 +6,7 @@
 #    By: gedemais <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/05 17:34:45 by gedemais          #+#    #+#              #
-#    Updated: 2020/07/08 22:53:54 by gedemais         ###   ########.fr        #
+#    Updated: 2020/11/10 20:23:16 by gedemais         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -146,7 +146,7 @@ $(NAME): $(OBJS)
 	@printf " Compiling $<"
 	@printf "                                       \\r"
 	@tput cnorm
-	@$(CC) $(FLAGS) -c $<
+	@$(CC) $(FLAGS) -c -fPIC $<
 
 clean: 
 	@rm -rf $(OBJS)

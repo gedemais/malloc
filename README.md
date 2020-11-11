@@ -3,6 +3,7 @@
 - [ ] protect functions temporality
 - [ ] protect against stupid memory sizes (getrlimit)
 - [ ] mmap with page_size multiples only
+- [ ] sort addresses in show_alloc_mem()
 
 <h2>Blocked :</h2>
 

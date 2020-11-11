@@ -17,3 +17,19 @@ t_zone	*g_zones(unsigned int index)
 		return (NULL);
 	return (&zones[index]);
 }
+
+bool	*zone_init(bool up)
+{
+	static bool		init = false;
+
+	if (!init)
+		init = up;
+	return (&init);
+}
+
+bool	*debug(void)
+{
+	static bool	value = false;
+
+	return (&value);
+}

@@ -52,5 +52,6 @@ int			first_call(bool *first)
 			return (-1);
 	}
 	*first = false;
+	zone_init(true);
 	return (0);
 }

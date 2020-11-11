@@ -21,7 +21,7 @@ $(NAME): $(OBJ)
 	$(CC) -shared $(OBJ) -o $(NAME) $(LIB)
 
 $(SRC_PATH)%.o: $(SRC_PATH)%.c $(INC)
-	$(CC) $(FLAGS) -I$(INC_PATH) -I$(LIB_PATH) -o $@ -c $<
+	$(CC) $(FLAGS) -I$(INC_PATH) -I$(LIB_PATH) -fPIC -o $@ -c $<
 
 clean:
 	rm -rf $(OBJ)

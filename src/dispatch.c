@@ -1,13 +1,13 @@
 #include "main.h"
 
-static bool	is_chunk_free(t_zone *zone, int64_t	head)
+static bool	is_chunk_free(t_zone *zone, int page_index, int64_t	head)
 {
 	t_chunk	*chunk;
 
 	for (int i = 0; i < zone->chunks.nb_cells; i++)
 	{
 		chunk = dyacc(&zone->chunks, i);
-		if (chunk->addr == head)
+		if (chunk->page == page_index && chunk->addr == head)
 			return (false);
 	}
 	return (true);
@@ -23,8 +23,12 @@ static void	*place_chunk_in_page(t_zone *zone, t_page *page, int page_index, siz
 	bound = head + (int64_t)page_size();
 	while (head < bound)
 	{
-		if (is_chunk_free(zone, head))
+		if (*debug())
+			printf("checking %p...\n", (void*)head);
+		if (is_chunk_free(zone, page_index, head))
 		{
+			if (*debug())
+				printf("free !\n");
 			new.addr = head;
 			new.size = size;
 			new.page = page_index;
@@ -34,6 +38,8 @@ static void	*place_chunk_in_page(t_zone *zone, t_page *page, int page_index, siz
 			page->frees--;
 			return ((void*)head);
 		}
+		if (*debug())
+			printf("not free !\n");
 		head += zone->chunk_size;
 	}
 	return (NULL);

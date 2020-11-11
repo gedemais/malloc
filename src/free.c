@@ -47,6 +47,8 @@ void	free_chunk(t_zone *zone, t_chunk *chunk, int index)
 		page = dyacc(&zone->pages, chunk->page);
 		page->frees++;
 	}
+	else
+		munmap((void*)chunk->addr, chunk->size);
 	extract_dynarray(&zone->chunks, index);
 }
 
@@ -56,6 +58,8 @@ void	free(void *ptr)
 	t_zone	*zone;
 	int		index;
 
+	if (*zone_init(false) == false)
+		return ;
 	if ((chunk = find_chunk(ptr, &index, &zone)))
 	{
 		free_chunk(zone, chunk, index);
