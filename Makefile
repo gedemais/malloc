@@ -1,4 +1,9 @@
-NAME=libmalloc.so
+ifeq ($(HOSTTYPE),)
+HOSTTYPE := $(shell uname -m)_$(shell uname -s)
+endif
+
+NAME_PREFIX = libft_malloc_
+NAME = $(NAME_PREFIX)$(HOSTTYPE).so
 
 CC=gcc
 FLAGS=-Wall -Werror -Wextra -Weverything

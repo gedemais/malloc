@@ -1,7 +1,0 @@
-src/dispatch.c:10:		if (chunk->addr == head)
-src/realloc.c:21:		chunk->size = size;
-src/realloc.c:22:		return ((void*)chunk->addr);
-src/free.c:31:		if (chunk->zone == zone->id && chunk->addr == (int64_t)ptr)
-src/free.c:47:		page = dyacc(&zone->pages, chunk->page);
-src/show_alloc_mem.c:26:		*total += chunk->size;
-src/show_alloc_mem.c:27:		printf("%p - %p : %zu octets\n", (void*)chunk->addr, (void*)(chunk->addr + (int64_t)chunk->size), chunk->size);
