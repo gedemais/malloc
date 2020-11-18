@@ -17,7 +17,8 @@ OBJ=$(SRC:.c=.o)
 LIB_PATH=libft/
 LIB=$(LIB_PATH)/libft.a
 
-all: $(LIB) $(NAME)
+all: $(LIB) $(NAME) $(LINK)
+	ln -fs $(NAME) libft_malloc.so
 
 $(LIB): $(LIB_PATH)
 	make -C $(LIB_PATH)
@@ -34,6 +35,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+	rm -rf libft_malloc.so
 	make -C $(LIB_PATH) fclean
 
 re: fclean all
