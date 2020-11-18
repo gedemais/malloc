@@ -23,12 +23,8 @@ static void	*place_chunk_in_page(t_zone *zone, t_page *page, int page_index, siz
 	bound = head + (int64_t)page_size();
 	while (head < bound)
 	{
-		if (*debug())
-			printf("checking %p...\n", (void*)head);
 		if (is_chunk_free(zone, page_index, head))
 		{
-			if (*debug())
-				printf("free !\n");
 			new.addr = head;
 			new.size = size;
 			new.page = page_index;
@@ -38,8 +34,6 @@ static void	*place_chunk_in_page(t_zone *zone, t_page *page, int page_index, siz
 			page->frees--;
 			return ((void*)head);
 		}
-		if (*debug())
-			printf("not free !\n");
 		head += zone->chunk_size;
 	}
 	return (NULL);
@@ -92,6 +86,5 @@ void	*zone_dispatch(size_t size)
 	for (unsigned int i = 0; i < ZONE_MAX; i++)
 		if (size > sizes[i] && size <= sizes[i + 1])
 			return (allocate_chunk(g_zones(i), size));
-	printf("dispatch failed (%zu)\n", size);
 	return (NULL);
 }

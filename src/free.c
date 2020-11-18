@@ -65,5 +65,4 @@ void	free(void *ptr)
 		free_chunk(zone, chunk, index);
 		return ;
 	}
-	printf("failed ! %p\n", ptr);
 }

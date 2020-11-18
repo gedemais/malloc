@@ -32,7 +32,7 @@ enum			e_zones
 enum			e_zone_size
 {
 	ZS_TINY = 16,
-	ZS_SMALL = 64,
+	ZS_SMALL = 1024,
 	ZS_LARGE = INT_MAX
 };
 
