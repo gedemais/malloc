@@ -1,5 +1,6 @@
 <h2>Todo :</h2>
 
+- [ ] check in realloc if asked address is part of a chunk
 - [ ] protect functions temporality
 - [ ] protect against stupid memory sizes (getrlimit)
 - [ ] mmap with page_size multiples only
