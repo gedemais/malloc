@@ -1,26 +1,17 @@
 <h2>Todo :</h2>
 
-- [ ] check in realloc if asked address is part of a chunk
-- [ ] protect functions temporality
-- [ ] protect against stupid memory sizes (getrlimit)
-- [ ] mmap with page_size multiples only
+- [ ] implement sort_dynarray
 - [ ] sort addresses in show_alloc_mem()
+- [ ] implement tests script to run correction tests in a row
 
 <h2>Blocked :</h2>
 
 <h2>In Progress :</h2>
 
-- [ ] realloc
-
 <h2>Testing :</h2>
-
-- [ ] malloc and free a lot of pointers and free them all
-- [ ] make a list of malloc'ed pointers, and realloc or free them randomly
 
 <h2>Done :</h2>
 
-- [x] Fix tiny and small add_pages
-- [x] code free
 
 <h2>Backlog :</h2>
 
@@ -36,3 +27,9 @@
 	- [x] create functions body, zones instance, data structures
 	- [x] code first launch function
 	- [x] code show alloc mem + test
+	- [x] code free
+	- [x] Fix tiny and small add_pages
+	- [x] check in realloc if asked address is part of a chunk
+	- [x] protect functions temporality
+	- [x] make realloc able to execute first
+	- [x] mmap with page_size multiples only (dynarrays + code)

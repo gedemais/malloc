@@ -6,7 +6,6 @@ SRC_NAME=	malloc.c\
 			show_alloc_mem.c\
 			dispatch.c\
 		 	first_call.c\
-		 	singletons.c\
-			tools.c
+		 	singletons.c
 
 SRC=$(addprefix $(SRC_PATH), $(SRC_NAME))

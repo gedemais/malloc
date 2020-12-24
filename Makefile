@@ -18,13 +18,13 @@ LIB_PATH=libft/
 LIB=$(LIB_PATH)/libft.a
 
 all: $(LIB) $(NAME) $(LINK)
-	ln -fs $(NAME) libft_malloc.so
 
 $(LIB): $(LIB_PATH)
 	make -C $(LIB_PATH)
 
 $(NAME): $(OBJ)
 	$(CC) -shared $(OBJ) -o $(NAME) $(LIB)
+	ln -fs $(NAME) libft_malloc.so
 
 $(SRC_PATH)%.o: $(SRC_PATH)%.c $(INC)
 	$(CC) $(FLAGS) -I$(INC_PATH) -I$(LIB_PATH) -fPIC -o $@ -c $<

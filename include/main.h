@@ -7,6 +7,7 @@
 # include "libft.h"
 
 # include <stdio.h>
+# include <sys/resource.h>
 # include <limits.h>
 # include <assert.h>
 

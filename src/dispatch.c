@@ -1,19 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   dispatch.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gedemais <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/24 17:50:46 by gedemais          #+#    #+#             */
+/*   Updated: 2020/12/24 17:55:45 by gedemais         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "main.h"
 
-static bool	is_chunk_free(t_zone *zone, int page_index, int64_t	head)
+static bool	is_chunk_free(t_zone *zone, int page_index, int64_t head)
 {
 	t_chunk	*chunk;
+	int		i;
 
-	for (int i = 0; i < zone->chunks.nb_cells; i++)
+	i = 0;
+	while (i < zone->chunks.nb_cells)
 	{
 		chunk = dyacc(&zone->chunks, i);
 		if (chunk->page == page_index && chunk->addr == head)
 			return (false);
+		i++;
 	}
 	return (true);
 }
 
-static void	*place_chunk_in_page(t_zone *zone, t_page *page, int page_index, size_t size)
+static void	*place_chunk_in_page(t_zone *zone,
+									t_page *page, int page_index, size_t size)
 {
 	t_chunk	new;
 	int64_t	head;
@@ -39,7 +55,7 @@ static void	*place_chunk_in_page(t_zone *zone, t_page *page, int page_index, siz
 	return (NULL);
 }
 
-void	*allocate_large_chunk(t_zone *zone, size_t size)
+void		*allocate_large_chunk(t_zone *zone, size_t size)
 {
 	t_chunk	new;
 	void	*addr;
@@ -55,18 +71,22 @@ void	*allocate_large_chunk(t_zone *zone, size_t size)
 	return (addr);
 }
 
-void	*allocate_chunk(t_zone *zone, size_t size)
+void		*allocate_chunk(t_zone *zone, size_t size)
 {
-	void	*ret = NULL;
 	t_page	*page;
+	void	*ret;
+	int		i;
 
+	i = 0;
+	ret = NULL;
 	if (zone->id == ZONE_LARGE)
 		return (allocate_large_chunk(zone, size));
-	for (int i = 0; i < zone->pages.nb_cells; i++)
+	while (i < zone->pages.nb_cells)
 	{
 		page = dyacc(&zone->pages, i);
 		if (page->frees > 0)
 			return (place_chunk_in_page(zone, page, i, size));
+		i++;
 	}
 	if (ret == NULL)
 	{
@@ -77,14 +97,19 @@ void	*allocate_chunk(t_zone *zone, size_t size)
 	return (ret);
 }
 
-void	*zone_dispatch(size_t size)
+void		*zone_dispatch(size_t size)
 {
 	const size_t	sizes[ZONE_MAX + 1] = {0, ZS_TINY, ZS_SMALL, ZS_LARGE};
+	unsigned int	i;
 
+	i = 0;
 	if (size == 0)
-			return (allocate_chunk(g_zones(0), size));
-	for (unsigned int i = 0; i < ZONE_MAX; i++)
+		return (allocate_chunk(g_zones(0), size));
+	while (i < ZONE_MAX)
+	{
 		if (size > sizes[i] && size <= sizes[i + 1])
 			return (allocate_chunk(g_zones(i), size));
+		i++;
+	}
 	return (NULL);
 }
