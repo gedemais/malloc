@@ -1,6 +1,5 @@
 <h2>Todo :</h2>
 
-- [ ] implement sort_dynarray
 - [ ] sort addresses in show_alloc_mem()
 - [ ] implement tests script to run correction tests in a row
 
@@ -33,3 +32,4 @@
 	- [x] protect functions temporality
 	- [x] make realloc able to execute first
 	- [x] mmap with page_size multiples only (dynarrays + code)
+	- [x] implement sort_dynarray

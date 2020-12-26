@@ -6,7 +6,7 @@
 #    By: gedemais <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/05 17:34:45 by gedemais          #+#    #+#              #
-#    Updated: 2020/11/10 20:23:16 by gedemais         ###   ########.fr        #
+#    Updated: 2020/12/26 00:40:27 by gedemais         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -124,6 +124,7 @@ SRCS  =	ft_atoi.c \
 		dynarray.c\
 		dynarray_insert.c\
 		dynarray_mem.c\
+		dynarray_sort.c\
 		dynarray_stack.c\
 		ft_free_ctab.c\
 		ft_tablen.c
