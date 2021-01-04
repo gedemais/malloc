@@ -1,6 +1,6 @@
 <h2>Todo :</h2>
 
-- [ ] sort addresses in show_alloc_mem()
+- [ ] print addresses correctly with convert_base
 - [ ] implement tests script to run correction tests in a row
 
 <h2>Blocked :</h2>
@@ -8,6 +8,7 @@
 <h2>In Progress :</h2>
 
 <h2>Testing :</h2>
+- [x] sort addresses in show_alloc_mem()
 
 <h2>Done :</h2>
 
@@ -33,3 +34,4 @@
 	- [x] make realloc able to execute first
 	- [x] mmap with page_size multiples only (dynarrays + code)
 	- [x] implement sort_dynarray
+	- [x] implement dynarray_dump()

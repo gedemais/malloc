@@ -6,7 +6,7 @@
 /*   By: gedemais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 17:57:40 by gedemais          #+#    #+#             */
-/*   Updated: 2020/12/24 18:00:30 by gedemais         ###   ########.fr       */
+/*   Updated: 2021/01/04 22:18:53 by gedemais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ t_chunk				*find_chunk(void *ptr, int *index, t_zone **z)
 			*index = j;
 			return (chunk);
 		}
+		j++;
 	}
 	return (NULL);
 }

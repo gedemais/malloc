@@ -6,7 +6,7 @@
 /*   By: gedemais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 17:56:01 by gedemais          #+#    #+#             */
-/*   Updated: 2020/12/24 17:57:23 by gedemais         ###   ########.fr       */
+/*   Updated: 2021/01/04 22:10:18 by gedemais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int			first_call(bool *first)
 		zone->cpp = page_size() / (int)zone->chunk_size;
 		if (allocate_zone_data(zone, (i == ZONE_LARGE)))
 			return (-1);
+		i++;
 	}
 	if (first)
 		*first = false;

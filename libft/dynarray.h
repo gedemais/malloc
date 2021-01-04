@@ -6,7 +6,7 @@
 /*   By: gedemais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 18:03:19 by gedemais          #+#    #+#             */
-/*   Updated: 2020/12/26 01:01:26 by gedemais         ###   ########.fr       */
+/*   Updated: 2021/01/04 22:42:54 by gedemais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ int				extract_dynarray(t_dynarray *arr, int index);
 int				dynarray_swap_cells(t_dynarray *add, int index1, int index2);
 void			sort_dynarray(t_dynarray *array, int (*compare)(void*, void*));
 bool			is_dynarray_sort(t_dynarray *array, int (*compare)(void*, void*));
+int				dynarray_dump(t_dynarray *array, t_dynarray *dump);
 
 #endif

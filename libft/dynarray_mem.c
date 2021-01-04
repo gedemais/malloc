@@ -6,7 +6,7 @@
 /*   By: gedemais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 18:04:09 by gedemais          #+#    #+#             */
-/*   Updated: 2020/12/24 17:48:21 by gedemais         ###   ########.fr       */
+/*   Updated: 2021/01/04 22:42:32 by gedemais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,15 @@ int			check_space(t_dynarray *arr)
 	while (arr->nb_cells * arr->cell_size >= arr->byte_size)
 		if (realloc_content(arr))
 			return (-1);
+	return (0);
+}
+
+int		dynarray_dump(t_dynarray *array, t_dynarray *dump)
+{
+	ft_memcpy(dump, array, sizeof(t_dynarray));
+	if (!(dump->c = alloc_content(dump->byte_size))
+		|| !(dump->tmp = alloc_content(dump->byte_size)))
+		return (-1);
+	ft_memcpy(dump->c, array->c, dump->byte_size);
 	return (0);
 }
