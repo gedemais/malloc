@@ -15,7 +15,7 @@ include $(SCRIPT_PATH)/includes.mk
 OBJ=$(SRC:.c=.o)
 
 LIB_PATH=libft/
-LIB=$(LIB_PATH)/libft.a
+LIB=$(LIB_PATH)libft.a
 
 all: $(LIB) $(NAME) $(LINK)
 
