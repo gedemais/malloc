@@ -6,7 +6,7 @@
 /*   By: gedemais <gedemais@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 09:05:11 by gedemais          #+#    #+#             */
-/*   Updated: 2020/10/19 23:39:12 by gedemais         ###   ########.fr       */
+/*   Updated: 2021/05/08 09:35:03 by gedemais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char				*ft_itoa(long long int n);
 int					ft_strfind(const char *str, int c);
 char				*ft_strrealloc(char *s, size_t size);
 int					get_next_line(const int fd, char **line);
-char				*ft_convert_base(char *nbr, char *base_from, char *base_to);
+void				ft_convert_base(char *res, size_t val, char *base_to);
 double				ft_atof(const char *str);
 char				*ft_strlcpy(char *dst, const char *src, size_t len);
 int					ft_strclen(char *s, char c);

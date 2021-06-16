@@ -24,7 +24,7 @@ $(LIB): $(LIB_PATH)
 
 $(NAME): $(OBJ)
 	$(CC) -shared $(OBJ) -o $(NAME) $(LIB)
-	ln -fs $(NAME) libft_malloc.so
+	ln -s $(NAME) libft_malloc.so
 
 $(SRC_PATH)%.o: $(SRC_PATH)%.c $(INC)
 	$(CC) $(FLAGS) -I$(INC_PATH) -I$(LIB_PATH) -fPIC -o $@ -c $<

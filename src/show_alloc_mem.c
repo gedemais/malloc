@@ -14,12 +14,40 @@ static int	addresses_sort_func(void *cell_a, void *cell_b)
 
 static void	print_zone_title(t_zone *zone)
 {
-//	ft_putstr(zone->name);
-//	ft_putstr(" : ");
-//	fflush(stdout);
-	printf("ZONE %s : %p\n", zone->name, zone->pages.c);
+	char	addr[32];
+	char	display[32];
 
-	printf("%d pages, %d chunks (addr | frees | blk_size) :\n", zone->pages.nb_cells, zone->chunks.nb_cells);
+	ft_putstr(zone->name);
+	ft_putstr(" : ");
+	ft_convert_base(addr, (size_t)zone->pages.c, "0123456789ABCDEF");
+	ft_strcpy(display, "0x");
+	ft_strcat(display, &addr[4]);
+	ft_putendl(display);
+	fflush(stdout);
+	//printf("%d pages, %d chunks (addr | frees | blk_size) :\n", zone->pages.nb_cells, zone->chunks.nb_cells);
+}
+
+static void	print_chunk(size_t start_addr, size_t end_addr, size_t size)
+{
+	char	start[32];
+	char	end[32];
+	char	s[16];
+	char	display[128];
+
+	ft_convert_base(start, start_addr, "0123456789ABCDEF");
+	ft_convert_base(end, end_addr, "0123456789ABCDEF");
+	ft_convert_base(s, size, "0123456789");
+	
+	ft_strcpy(display, "0x");
+	ft_strcat(display, &start[4]);
+	ft_strcat(display, " - ");
+	ft_strcat(display, "0x");
+	ft_strcat(display, &end[4]);
+	ft_strcat(display, " : ");
+	ft_strcat(display, s);
+	ft_strcat(display, " octets");
+
+	ft_putendl(display);
 }
 
 static void	print_zone_chunks(t_zone *zone, int *total)
@@ -34,7 +62,7 @@ static void	print_zone_chunks(t_zone *zone, int *total)
 	{
 		chunk = dyacc(&dump, i);
 		*total += chunk->size;
-		printf("%p - %p : %zu octets\n", (void*)chunk->addr, (void*)(chunk->addr + (int64_t)chunk->size), chunk->size);
+		print_chunk((size_t)chunk->addr, (size_t)chunk->addr + chunk->size, chunk->size);
 	}
 	free_dynarray(&dump);
 }
