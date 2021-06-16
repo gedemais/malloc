@@ -1,6 +1,5 @@
 <h2>Todo :</h2>
 
-- [ ] print addresses correctly with convert_base
 - [ ] implement tests script to run correction tests in a row
 
 <h2>Blocked :</h2>
@@ -8,7 +7,9 @@
 <h2>In Progress :</h2>
 
 <h2>Testing :</h2>
+
 - [x] sort addresses in show_alloc_mem()
+- [x] print addresses correctly with convert_base
 
 <h2>Done :</h2>
 
