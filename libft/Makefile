@@ -6,7 +6,7 @@
 #    By: gedemais <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/05 17:34:45 by gedemais          #+#    #+#              #
-#    Updated: 2021/01/04 22:30:48 by gedemais         ###   ########.fr        #
+#    Updated: 2021/06/19 12:21:33 by gedemais         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,6 @@ endif
 
 SRCS  =	ft_atoi.c \
 		ft_atof.c\
-		ft_strlcpy.c\
 		ft_abs.c\
 		ft_inbounds.c\
 		ft_bzero.c \
@@ -70,8 +69,11 @@ SRCS  =	ft_atoi.c \
 		ft_putendl_fd.c \
 		ft_putnbr.c \
 		ft_putnbr_fd.c \
+		ft_toupper.c \
+		ft_tolower.c \
 		ft_putstr.c \
 		ft_putstr_fd.c\
+		ft_strlcpy.c\
 		ft_strcat.c \
 		ft_strchr.c \
 		ft_strclr.c \
@@ -86,10 +88,8 @@ SRCS  =	ft_atoi.c \
 		ft_strmapi.c \
 		ft_strdup.c \
 		ft_strncmp.c \
-		ft_tolower.c \
 		ft_strequ.c \
 		ft_strncpy.c \
-		ft_toupper.c \
 		ft_striter.c \
 		ft_strnequ.c \
 		ft_striteri.c \
@@ -100,26 +100,26 @@ SRCS  =	ft_atoi.c \
 		ft_strrchr.c \
 		ft_strlen.c \
 		ft_strsplit.c\
-		ft_is_whitespace.c\
 		ft_strrev.c \
+		ft_strfind.c \
+		ft_strrealloc.c \
+		ft_strndup.c \
+		ft_strwlen.c\
+		ft_strclen.c\
+		ft_is_whitespace.c\
 		ft_lstnew.c \
 		ft_lstdelone.c \
 		ft_lstdel.c \
 		ft_lstadd.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
-		ft_strfind.c \
 		get_next_line.c \
-		ft_strrealloc.c \
 		ft_convert_base.c \
 		ft_nblen.c \
-		ft_strndup.c \
 		ft_swap.c \
 		ft_quicksort.c \
 		ft_constrain.c \
 		ft_to_degrees.c \
-		ft_strwlen.c\
-		ft_strclen.c\
 		ft_to_radians.c\
 		dynarray.c\
 		dynarray_insert.c\

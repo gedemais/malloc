@@ -30,11 +30,11 @@ nm libft_malloc.so | pcregrep -M "_mmap\n|_munmap\n|_getpagesize\n|_write\n|dyld
 echo "---------------------"
 echo "Test 0:"
 gcc -o test0 correction/test0.c
-bash correction/script_macos.sh ./test0
+bash correction/script_macos.sh ./test0 > result_0
 grep -Er "page reclaims" result_0
 echo "---------------------"
 echo "Test 1:"
-gcc -o test1 correction/test1.c
+gcc -o test1 -L. -lft_malloc correction/test1.c
 bash correction/script_macos.sh ./test1
 echo "---------------------"
 echo "Test 2:"
@@ -54,7 +54,7 @@ gcc -o test4 correction/test4.c
 bash correction/script_macos.sh ./test4
 echo "---------------------"
 echo "Test 5:"
-gcc -o test5 correction/test5.c
+gcc -o test5 -L. -lft_malloc correction/test5.c
 bash correction/script_macos.sh ./test5
 
 rm test*

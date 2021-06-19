@@ -6,7 +6,7 @@
 /*   By: gedemais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 18:04:09 by gedemais          #+#    #+#             */
-/*   Updated: 2021/01/04 22:42:32 by gedemais         ###   ########.fr       */
+/*   Updated: 2021/06/18 17:39:35 by gedemais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 void	*alloc_content(size_t size)
 {
-	size_t			new;
-	void			*ptr;
+	int			pagesize;
+	size_t		new;
+	void		*ptr;
 
 	new = 1;
+	pagesize = getpagesize();
 	while (new < size)
-		new *= 2;
+		new += (size_t)pagesize;
 	ptr = mmap(NULL, new,
 		PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 	if (ptr == MAP_FAILED)
@@ -56,9 +58,9 @@ int			check_space(t_dynarray *arr)
 int		dynarray_dump(t_dynarray *array, t_dynarray *dump)
 {
 	ft_memcpy(dump, array, sizeof(t_dynarray));
-	if (!(dump->c = alloc_content(dump->byte_size))
-		|| !(dump->tmp = alloc_content(dump->byte_size)))
+	if (!(dump->c = alloc_content((size_t)dump->byte_size))
+		|| !(dump->tmp = alloc_content((size_t)dump->byte_size)))
 		return (-1);
-	ft_memcpy(dump->c, array->c, dump->byte_size);
+	ft_memcpy(dump->c, array->c, (size_t)dump->byte_size);
 	return (0);
 }

@@ -24,7 +24,6 @@ static void	print_zone_title(t_zone *zone)
 	ft_strcat(display, &addr[4]);
 	ft_putendl(display);
 	fflush(stdout);
-	//printf("%d pages, %d chunks (addr | frees | blk_size) :\n", zone->pages.nb_cells, zone->chunks.nb_cells);
 }
 
 static void	print_chunk(size_t start_addr, size_t end_addr, size_t size)
@@ -72,10 +71,12 @@ void	show_alloc_mem(void)
 	t_zone	*zone;
 	int		total = 0;
 
+	write(1, "COUCOU\n", 7);
 	for (unsigned int i = 0; i < ZONE_MAX; i++)
 	{
 		zone = g_zones(i);
 		print_zone_title(zone);
 		print_zone_chunks(zone, &total);
 	}
+	write(1, "COUCOU2\n", 8);
 }
