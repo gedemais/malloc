@@ -6,7 +6,7 @@
 /*   By: gedemais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 00:02:04 by gedemais          #+#    #+#             */
-/*   Updated: 2021/06/18 17:13:27 by gedemais         ###   ########.fr       */
+/*   Updated: 2021/06/23 17:18:09 by gedemais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,14 @@ t_zone			*g_zones(unsigned int index);
 int				page_size(void);
 int				add_pages(t_zone *zone, int nb_pages);
 
-int				first_call(bool *first);
+int				first_call(void);
 void			*zone_dispatch(size_t size);
 void			*allocate_chunk(t_zone *zone, size_t size);
 void			*allocate_large_chunk(t_zone *zone, size_t size);
 t_chunk			*find_chunk(void *ptr, int *index, t_zone **z);
 void			free_chunk(t_zone *zone, t_chunk *chunk, int index);
 
-bool			*zone_init(bool up);
+bool			*zone_init(void);
 bool			*debug(void);
 
 #endif

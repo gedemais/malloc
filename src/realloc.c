@@ -6,7 +6,7 @@
 /*   By: gedemais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 18:01:32 by gedemais          #+#    #+#             */
-/*   Updated: 2021/05/08 09:05:19 by gedemais         ###   ########.fr       */
+/*   Updated: 2021/06/23 17:19:42 by gedemais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void		*realloc(void *ptr, size_t size)
 	t_chunk	*chunk;
 	int		index;
 
-	if (*zone_init(false) == false && first_call(NULL))
+	if (*zone_init() == false && first_call())
 		return (NULL);
 	if (size == 0)
 		free(ptr);

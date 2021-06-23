@@ -6,7 +6,7 @@
 /*   By: gedemais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 18:04:37 by gedemais          #+#    #+#             */
-/*   Updated: 2020/12/24 18:04:38 by gedemais         ###   ########.fr       */
+/*   Updated: 2021/06/23 17:17:32 by gedemais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,11 @@ t_zone	*g_zones(unsigned int index)
 	return (&zones[index]);
 }
 
-bool	*zone_init(bool up)
+bool	*zone_init(void)
 {
-	static bool		init = false;
+	static bool	var = false;
 
-	if (!init)
-		init = up;
-	return (&init);
+	return (&var);
 }
 
 bool	*debug(void)

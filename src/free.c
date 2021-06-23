@@ -6,7 +6,7 @@
 /*   By: gedemais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 17:57:40 by gedemais          #+#    #+#             */
-/*   Updated: 2021/05/08 09:05:15 by gedemais         ###   ########.fr       */
+/*   Updated: 2021/06/23 17:19:24 by gedemais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void				free(void *ptr)
 	t_zone	*zone;
 	int		index;
 
-	if (*zone_init(false) == false)
+	if (*zone_init() == false)
 		return ;
 	if ((chunk = find_chunk(ptr, &index, &zone)))
 	{

@@ -6,7 +6,7 @@
 /*   By: gedemais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 17:56:01 by gedemais          #+#    #+#             */
-/*   Updated: 2021/01/04 22:10:18 by gedemais         ###   ########.fr       */
+/*   Updated: 2021/06/23 17:20:01 by gedemais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	allocate_zone_data(t_zone *zone, bool is_large)
 	return (0);
 }
 
-int			first_call(bool *first)
+int			first_call(void)
 {
 	const char		*names[ZONE_MAX] = {"TINY", "SMALL", "LARGE"};
 	const size_t	sizes[ZONE_MAX] = {ZS_TINY, ZS_SMALL, ZS_LARGE};
@@ -58,6 +58,8 @@ int			first_call(bool *first)
 	unsigned int	i;
 
 	i = 0;
+	ft_putendl(__FUNCTION__);
+	fflush(stdout);
 	while (i < ZONE_MAX)
 	{
 		zone = g_zones(i);
@@ -69,8 +71,6 @@ int			first_call(bool *first)
 			return (-1);
 		i++;
 	}
-	if (first)
-		*first = false;
-	zone_init(true);
+	*zone_init() = true;
 	return (0);
 }
