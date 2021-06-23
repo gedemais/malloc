@@ -6,7 +6,7 @@
 /*   By: gedemais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 17:56:01 by gedemais          #+#    #+#             */
-/*   Updated: 2021/06/23 17:20:01 by gedemais         ###   ########.fr       */
+/*   Updated: 2021/06/23 22:15:42 by gedemais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ int			first_call(void)
 	unsigned int	i;
 
 	i = 0;
-	ft_putendl(__FUNCTION__);
-	fflush(stdout);
 	while (i < ZONE_MAX)
 	{
 		zone = g_zones(i);

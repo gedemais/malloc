@@ -30,31 +30,30 @@ nm libft_malloc.so | pcregrep -M "_mmap\n|_munmap\n|_getpagesize\n|_write\n|dyld
 echo "---------------------"
 echo "Test 0:"
 gcc -o test0 correction/test0.c
-bash correction/script_macos.sh ./test0 > result_0
+sh correction/script_macos.sh ./test0 > result_0
 grep -Er "page reclaims" result_0
 echo "---------------------"
 echo "Test 1:"
 gcc -o test1 -L. -lft_malloc correction/test1.c
-bash correction/script_macos.sh ./test1
+sh correction/script_macos.sh ./test1
 echo "---------------------"
 echo "Test 2:"
 gcc -o test2 correction/test2.c
-bash correction/script_macos.sh ./test2
+sh correction/script_macos.sh ./test2
 echo "---------------------"
 echo "Test 3:"
 gcc -o test3 correction/test3.c
-bash correction/script_macos.sh ./test3
+sh correction/script_macos.sh ./test3
 echo "---------------------"
 echo "Test 3bis:"
-gcc -o test3bis correction/test3bis.c
-bash correction/script_macos.sh ./test3bis
+gcc -o test3bis -lft -Llibft/ -Ilibft/ -L./ -lft_malloc -Iinclude/ correction/test3bis.c
+sh correction/script_macos.sh ./test3bis
 echo "---------------------"
 echo "Test 4:"
-gcc -o test4 correction/test4.c
-bash correction/script_macos.sh ./test4
+gcc -o test4 -lft -Llibft/ -Ilibft/ -L./ -lft_malloc -Iinclude/ correction/test4.c
+sh correction/script_macos.sh ./test4
 echo "---------------------"
 echo "Test 5:"
-gcc -o test5 -L. -lft_malloc correction/test5.c
-bash correction/script_macos.sh ./test5
-
+gcc -o test5 -lft -Llibft/ -Ilibft/ -L./ -lft_malloc -Iinclude/ correction/test5.c
+sh correction/script_macos.sh ./test5
 rm test*

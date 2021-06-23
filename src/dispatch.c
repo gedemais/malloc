@@ -6,7 +6,7 @@
 /*   By: gedemais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 17:50:46 by gedemais          #+#    #+#             */
-/*   Updated: 2020/12/24 17:55:45 by gedemais         ###   ########.fr       */
+/*   Updated: 2021/06/23 22:22:12 by gedemais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void		*allocate_chunk(t_zone *zone, size_t size)
 	}
 	if (ret == NULL)
 	{
-		if (add_pages(zone, zone->pages.nb_cells * 2))
+		if (add_pages(zone, 1))
 			return (NULL);
 		return (allocate_chunk(zone, size));
 	}
