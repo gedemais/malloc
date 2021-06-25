@@ -6,7 +6,7 @@
 /*   By: gedemais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 18:01:17 by gedemais          #+#    #+#             */
-/*   Updated: 2021/06/24 14:00:28 by user42           ###   ########.fr       */
+/*   Updated: 2021/06/25 10:17:01 by gedemais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	*malloc(size_t size)
 {
-	exit(0);
 	if (*zone_init() == false && first_call())
 		return (NULL);
 	return (zone_dispatch(size));
