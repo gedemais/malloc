@@ -6,7 +6,11 @@ NAME_PREFIX = libft_malloc_
 NAME = $(NAME_PREFIX)$(HOSTTYPE).so
 
 CC=gcc
-FLAGS=-Wall -Werror -Wextra -Weverything
+FLAGS=-Wall -Werror -Wextra
+
+ifeq ($(shell uname -s), "Darwin")
+	FLAGS += -Weverything
+endif
 
 SCRIPT_PATH=scripts/
 include $(SCRIPT_PATH)/srcs.mk

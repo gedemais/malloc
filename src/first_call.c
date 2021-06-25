@@ -6,7 +6,7 @@
 /*   By: gedemais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 17:56:01 by gedemais          #+#    #+#             */
-/*   Updated: 2021/06/23 22:15:42 by gedemais         ###   ########.fr       */
+/*   Updated: 2021/06/24 13:59:29 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,17 @@
 int			add_pages(t_zone *zone, int nb_pages)
 {
 	t_page	new;
-	void	*head;
-	void	*blk;
 	int		i;
 
 	i = 0;
-	if (!(blk = alloc_content((size_t)nb_pages * (size_t)page_size())))
-		return (-1);
-	head = blk;
 	while (i < nb_pages)
 	{
-		new.addr = (int64_t)head;
+		if (!(new.addr = (int64_t)alloc_content((size_t)page_size())))
+			return (-1);
 		new.frees = zone->cpp;
-		new.blk_size = (i == 0) ? (size_t)nb_pages * (size_t)page_size() : 0;
+		new.blk_size = page_size();
 		if (push_dynarray(&zone->pages, &new, false))
 			return (-1);
-		head = (void*)((size_t)head + (size_t)page_size());
 		i++;
 	}
 	return (0);

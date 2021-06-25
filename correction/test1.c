@@ -1,7 +1,4 @@
 #include <stdlib.h>
-#include <stdio.h>
-#include "libft.h"
-#include "main.h"
 
 int	main()
 {
