@@ -2,7 +2,7 @@ ifeq ($(HOSTTYPE),)
 HOSTTYPE := $(shell uname -m)_$(shell uname -s)
 endif
 
-NAME_PREFIX = libft_malloc_
+NAME_PREFIX = libft_malloc
 NAME = $(NAME_PREFIX)$(HOSTTYPE).so
 
 CC=gcc

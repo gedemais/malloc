@@ -1,15 +1,11 @@
 <h2>Todo :</h2>
 
-- [ ] implement tests script to run correction tests in a row
-
 <h2>Blocked :</h2>
 
 <h2>In Progress :</h2>
 
 <h2>Testing :</h2>
 
-- [x] sort addresses in show_alloc_mem()
-- [x] print addresses correctly with convert_base
 
 <h2>Done :</h2>
 
@@ -17,8 +13,6 @@
 <h2>Backlog :</h2>
 
 <h2> ---------- Done Backlog ---------- </h2>
-
-<h3>Setup of project :</h3>
 
 	- [x] Create Makefile (.so) and main sources + a main launcher
 	- [x] Learn how to create a git repo form a classic repertory
@@ -36,3 +30,5 @@
 	- [x] mmap with page_size multiples only (dynarrays + code)
 	- [x] implement sort_dynarray
 	- [x] implement dynarray_dump()
+	- [x] sort addresses in show_alloc_mem()
+	- [x] print addresses correctly with convert_base
